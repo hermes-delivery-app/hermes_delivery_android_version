@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">HermesDelivery</string>
+
+    //authorization strings
+    <string name="signup_string">SignUp</string>
+    <string name="signin_string">SignIn</string>
+
+</resources>
