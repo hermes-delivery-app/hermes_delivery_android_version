@@ -44,12 +44,12 @@
             app:layout_constraintVertical_bias="0.043" />
 
         <EditText
-            android:id="@+id/email_edit_text"
+            android:id="@+id/phone_number_edit_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textEmailAddress"
-            android:hint="Email"  />
+            android:hint="Phone number"
+            android:inputType="phone" />
 
         <EditText
             android:id="@+id/password_edit_text"
@@ -72,12 +72,18 @@
     app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/signup_button"
+            android:id="@+id/signin_l_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/signin_string"
             android:ems="13"
             android:layout_marginTop="15dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/test_tv"
+            android:text="sometext"
+            />
     </LinearLayout>
 
 

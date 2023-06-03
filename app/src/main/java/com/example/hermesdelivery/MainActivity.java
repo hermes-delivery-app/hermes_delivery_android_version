@@ -8,7 +8,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 
 import android.widget.Button;
-import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,6 +23,9 @@ public class MainActivity extends AppCompatActivity {
                 .setOnClickListener(this::btnSignInClick);
         findViewById(R.id.auth_main_button)
                 .setOnClickListener(this::btnAuthMainClick);
+
+        findViewById(R.id.store_page_button)
+                .setOnClickListener(this::btnStoreClick);
 
     }
     private void btnSignUpClick( View v ) {
@@ -43,6 +45,13 @@ public class MainActivity extends AppCompatActivity {
                 MainActivity.this,
                 AuthorizationMain.class ) ;
         startActivity( authMainIntent ) ;
+    }
+
+    private void btnStoreClick( View v ) {
+        Intent storeIntent = new Intent(
+                MainActivity.this,
+                StorePage.class ) ;
+        startActivity( storeIntent ) ;
     }
 
 

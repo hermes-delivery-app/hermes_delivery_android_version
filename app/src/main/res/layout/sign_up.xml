@@ -47,14 +47,14 @@
             android:ems="10"
             android:inputType="textPersonName"
             android:hint="Name" />
+
         <EditText
-            android:id="@+id/email_edit_text"
+            android:id="@+id/phone_number_edit_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textEmailAddress"
-            android:hint="Email" />
-
+            android:hint="Phone number"
+            android:inputType="phone" />
         <EditText
             android:id="@+id/password_edit_text"
             android:layout_width="wrap_content"
@@ -73,8 +73,15 @@
             android:layout_marginTop="50dp"
             tools:layout_editor_absoluteX="144dp"
             tools:layout_editor_absoluteY="330dp" />
-    </LinearLayout>
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/test_tv"
+            />
+
+
+    </LinearLayout>
 
 
 
