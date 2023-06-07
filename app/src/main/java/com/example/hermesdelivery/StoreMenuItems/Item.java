@@ -1,13 +1,13 @@
-package com.example.hermesdelivery;
+package com.example.hermesdelivery.StoreMenuItems;
 
 public class Item {
     String name;
-    String info;
+    String description;
     int image;
 
     public Item(String name, String info, int image) {
         this.name = name;
-        this.info = info;
+        this.description = info;
         this.image = image;
     }
 
@@ -19,12 +19,12 @@ public class Item {
         this.name = name;
     }
 
-    public String getInfo() {
-        return info;
+    public String getDescription() {
+        return description;
     }
 
-    public void setInfo(String info) {
-        this.info = info;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public int getImage() {

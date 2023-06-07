@@ -27,6 +27,9 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.store_page_button)
                 .setOnClickListener(this::btnStoreClick);
 
+        findViewById(R.id.basket_page_button)
+                .setOnClickListener(this::btnBasketClick);
+
     }
     private void btnSignUpClick( View v ) {
         Intent signupIntent = new Intent(
@@ -52,6 +55,13 @@ public class MainActivity extends AppCompatActivity {
                 MainActivity.this,
                 StorePage.class ) ;
         startActivity( storeIntent ) ;
+    }
+
+    private void btnBasketClick( View v ) {
+        Intent basketIntent = new Intent(
+                MainActivity.this,
+                Basket.class ) ;
+        startActivity( basketIntent ) ;
     }
 
 

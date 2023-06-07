@@ -40,6 +40,9 @@
         <activity android:name=".StorePage"
             android:parentActivityName=".MainActivity"
             android:exported="false"/>
+        <activity android:name=".Basket"
+            android:parentActivityName=".MainActivity"
+            android:exported="false"/>
 
 
     </application>

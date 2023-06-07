@@ -35,8 +35,10 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 
 public class SignIn extends AppCompatActivity {
-    private final String URL="http://ec2-54-221-143-51.compute-1.amazonaws.com:3000/api";
-    String url = "http://ec2-107-23-252-231.compute-1.amazonaws.com:3000/users";// фальш сервер
+//name: alina
+//phone: 0975885252
+//password: testpass
+    private final String url = "http://ec2-107-23-252-231.compute-1.amazonaws.com:3000/items";
     EditText phoneET;
     EditText passwordET;
 
@@ -96,10 +98,9 @@ public class SignIn extends AppCompatActivity {
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            //testTV.setText(serverResponse);
+                            testTV.setText(serverResponse);
                         }
                     });
-                    //testTV.setText("Got it");
                 }catch(IOException error){
                     error.printStackTrace();
                 }
@@ -107,9 +108,6 @@ public class SignIn extends AppCompatActivity {
         }).start();
     }
     private void GetLoginData(){
-
-    }
-    private void SignInClick(View view){
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -118,28 +116,32 @@ public class SignIn extends AppCompatActivity {
                         .url(url)
                         .build();
                 OkHttpClient client = new OkHttpClient();
-                client.newCall(request).enqueue(new Callback() {
-                    @Override
-                    public void onFailure(@NonNull Call call, @NonNull IOException e) {
-                        e.printStackTrace();
-                    }
+                OkHttpClient.Builder builder = new OkHttpClient.Builder();
+                client = builder.build();
+                //Call call = client.newCall(request);
 
-                    @Override
-                    public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
-                        if(response.isSuccessful()){
-                            String myResponse = response.body().string();
-                            SignIn.this.runOnUiThread(new Runnable() {
-                                @Override
-                                public void run() {
-                                    testTV.setText(myResponse);
-                                }
-                            });
+                //Response response = null;
+
+                try(Response response = client.newCall(request).execute()){
+                    //response = call.execute();
+                    String serverResponse = response.body().string();
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            testTV.setText(serverResponse);
                         }
-                    }
-                });
-
+                    });
+                }catch(IOException error){
+                    error.printStackTrace();
+                }
             }
-        });
+        }).start();
+
+    }
+
+    private void SignInClick(View view){
+        //PostLoginData();
+        GetLoginData();
     }
     private void PageSignUpClick(View view)
     {

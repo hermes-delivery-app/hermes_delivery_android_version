@@ -1,4 +1,4 @@
-package com.example.hermesdelivery;
+package com.example.hermesdelivery.StoreMenuItems;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -6,6 +6,8 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.hermesdelivery.R;
 
 import java.util.List;
 
@@ -28,7 +30,7 @@ public class ItemAdapter  extends RecyclerView.Adapter<ItemViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ItemViewHolder holder, int position) {
         holder.itemNameTV.setText(items.get(position).getName());
-        holder.itemInfoTV.setText(items.get(position).getInfo());
+        holder.itemInfoTV.setText(items.get(position).getDescription());
         holder.itemImageTV.setImageResource(items.get(position).getImage());
 
     }

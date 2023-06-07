@@ -94,9 +94,6 @@ public class SignUp extends AppCompatActivity {
                         .build();
                 OkHttpClient client = new OkHttpClient();
                 OkHttpClient.Builder builder = new OkHttpClient.Builder();
-                builder.connectTimeout(100, TimeUnit.SECONDS);
-                builder.readTimeout(100, TimeUnit.SECONDS);
-                builder.writeTimeout(100, TimeUnit.SECONDS);
                 client = builder.build();
                 //Call call = client.newCall(request);
 
