@@ -27,14 +27,14 @@
         android:layout_toEndOf="@id/item_image_basket_view"
         android:layout_below="@+id/item_name_basket_text_view"
         android:text="item info"/>
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/add_item_button"
         android:layout_toEndOf="@id/item_info_basket_text_view"
         android:gravity="center"
-
-        android:text="+"
+        android:text=""
         android:outlineAmbientShadowColor="@color/purple_200"
         android:layout_marginRight="10dp"
         />

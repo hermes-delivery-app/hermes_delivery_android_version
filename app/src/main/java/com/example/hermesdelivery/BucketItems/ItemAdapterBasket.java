@@ -8,32 +8,30 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.hermesdelivery.R;
-import com.example.hermesdelivery.StoreMenuItems.Item;
-import com.example.hermesdelivery.StoreMenuItems.ItemViewHolder;
 
 import java.util.List;
 
-public class ItemAdapterBasket extends RecyclerView.Adapter<com.example.hermesdelivery.StoreMenuItems.ItemViewHolder> {
+public class ItemAdapterBasket extends RecyclerView.Adapter<ItemViewHolderBasket> {
 
     Context context;
-    List<com.example.hermesdelivery.StoreMenuItems.Item> items;
+    List<ItemBasket> items;
 
-    public ItemAdapterBasket(Context context, List<Item> items) {
+    public ItemAdapterBasket(Context context, List<ItemBasket> items) {
         this.context=context;
         this.items = items;
     }
 
     @NonNull
     @Override
-    public com.example.hermesdelivery.StoreMenuItems.ItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new com.example.hermesdelivery.StoreMenuItems.ItemViewHolder(LayoutInflater.from(context).inflate(R.layout.item_view,parent,false));
+    public ItemViewHolderBasket onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        return new ItemViewHolderBasket(LayoutInflater.from(context).inflate(R.layout.item_view,parent,false));
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ItemViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ItemViewHolderBasket holder, int position) {
         holder.itemNameTV.setText(items.get(position).getName());
         holder.itemInfoTV.setText(items.get(position).getDescription());
-        holder.itemImageTV.setImageResource(items.get(position).getImage());
+        holder.itemImageTV.setImageResource(items.get(position).get__v());
 
     }
 

@@ -10,6 +10,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.hermesdelivery.BucketItems.ItemAdapterBasket;
+import com.example.hermesdelivery.BucketItems.ItemBasket;
 import com.example.hermesdelivery.StoreMenuItems.Item;
 import com.example.hermesdelivery.StoreMenuItems.ItemAdapter;
 
@@ -24,26 +26,26 @@ public class Basket extends AppCompatActivity {
 
         RecyclerView recyclerView = findViewById(R.id.basket_items_recyclerview);
 
-        List<Item> items = new ArrayList<Item>();
+        List<ItemBasket> items = new ArrayList<ItemBasket>();
 
-        items.add(new Item("Some","something", 1));
-        items.add(new Item("Some","something", 1));
-        items.add(new Item("Some","something", 1));
-        items.add(new Item("Some","something", 1));
-        items.add(new Item("Some","something", 1));
-        items.add(new Item("Some","something", 1));
-        items.add(new Item("Some","something", 1));
-        items.add(new Item("Some","something", 1));
-        items.add(new Item("Some","something", 1));
-        items.add(new Item("Some","something", 1));
-        items.add(new Item("Some","something", 1));
-        items.add(new Item("Some","something", 1));
-        items.add(new Item("Some","something", 1));
-        items.add(new Item("Some","something", 1));
-        items.add(new Item("Some","something", 1));
-        items.add(new Item("Some","something", 1));
+        items.add(new ItemBasket("Some","something", 1));
+        items.add(new ItemBasket("Some","something", 1));
+        items.add(new ItemBasket("Some","something", 1));
+        items.add(new ItemBasket("Some","something", 1));
+        items.add(new ItemBasket("Some","something", 1));
+        items.add(new ItemBasket("Some","something", 1));
+        items.add(new ItemBasket("Some","something", 1));
+        items.add(new ItemBasket("Some","something", 1));
+        items.add(new ItemBasket("Some","something", 1));
+        items.add(new ItemBasket("Some","something", 1));
+        items.add(new ItemBasket("Some","something", 1));
+        items.add(new ItemBasket("Some","something", 1));
+        items.add(new ItemBasket("Some","something", 1));
+        items.add(new ItemBasket("Some","something", 1));
+        items.add(new ItemBasket("Some","something", 1));
+        items.add(new ItemBasket("Some","something", 1));
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(new ItemAdapter(getApplicationContext(),items));
+        recyclerView.setAdapter(new ItemAdapterBasket(getApplicationContext(),items));
     }
 
 

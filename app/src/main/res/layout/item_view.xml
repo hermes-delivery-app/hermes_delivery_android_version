@@ -27,6 +27,7 @@
         android:layout_toEndOf="@id/item_image_view"
         android:layout_below="@+id/item_name_text_view"
         android:text="item info"/>
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -41,7 +42,7 @@
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="2dp"
-    android:layout_below="@id/item_image_view"
+    android:layout_below="@id/item_info_text_view"
     android:background="#DAD8D8"
     android:layout_marginTop="10dp"/>
 

@@ -2,13 +2,13 @@ package com.example.hermesdelivery.BucketItems;
 
 public class ItemBasket {
     String name;
-    String info;
-    int image;
+    String Description;
+    int __v;
 
-    public ItemBasket(String name, String info, int image) {
+    public ItemBasket(String name, String Description, int __v) {
         this.name = name;
-        this.info = info;
-        this.image = image;
+        this.Description = Description;
+        this.__v = __v;
     }
 
     public String getName() {
@@ -19,19 +19,19 @@ public class ItemBasket {
         this.name = name;
     }
 
-    public String getInfo() {
-        return info;
+    public String getDescription() {
+        return Description;
     }
 
-    public void setInfo(String info) {
-        this.info = info;
+    public void setDescription(String description) {
+        this.Description = description;
     }
 
-    public int getImage() {
-        return image;
+    public int get__v() {
+        return __v;
     }
 
-    public void setImage(int image) {
-        this.image = image;
+    public void set__v(int __v) {
+        this.__v = __v;
     }
 }
