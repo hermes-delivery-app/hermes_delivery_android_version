@@ -3,47 +3,31 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="10dp"
-    android:theme="@style/BlackTextTheme">
-
-    <ImageView
-        android:id="@+id/item_image_view"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_marginRight="10dp"
-        android:outlineAmbientShadowColor="@color/black"
-        android:layout_centerVertical="true"/>
+    android:layout_marginLeft="20dp">
 
     <TextView
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:id="@+id/item_name_text_view"
-        android:layout_toEndOf="@id/item_image_view"
+
         android:text="item name"
-        android:textSize="20dp"/>
+        android:textSize="20dp"
+        style="@style/Item_Style"/>
     <TextView
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:id="@+id/item_info_text_view"
-        android:layout_toEndOf="@id/item_image_view"
+
         android:layout_below="@+id/item_name_text_view"
-        android:text="item info"/>
+        android:text="item info"
+        style="@style/Item_Style"/>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/add_item_button"
-        android:layout_toEndOf="@id/item_info_text_view"
-        android:gravity="center"
-
-        android:text="+"
-        android:outlineAmbientShadowColor="@color/purple_200"
-        android:layout_marginRight="10dp"
-        />
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="2dp"
     android:layout_below="@id/item_info_text_view"
     android:background="#DAD8D8"
-    android:layout_marginTop="10dp"/>
+    android:layout_marginVertical="20dp"
+    android:layout_marginRight="70dp"/>
 
 </RelativeLayout>

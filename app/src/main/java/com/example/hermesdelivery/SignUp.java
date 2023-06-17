@@ -1,18 +1,11 @@
 package com.example.hermesdelivery;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.VibrationEffect;
-import android.os.Vibrator;
-import android.os.VibratorManager;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -20,47 +13,44 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
+import com.example.hermesdelivery.Interfaces.UserSignUp;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
-import org.json.JSONObject;
 
-import java.io.IOException;
-import java.io.OutputStream;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.concurrent.TimeUnit;
+import java.util.ArrayList;
 
-import okhttp3.Call;
-import okhttp3.FormBody;
+import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
-import okhttp3.Request;
 import okhttp3.RequestBody;
-import okhttp3.Response;
-import retrofit2.http.Url;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class SignUp extends AppCompatActivity {
 
-    private final String url="http://ec2-107-23-252-231.compute-1.amazonaws.com:3000/auth/signup";
+    private final String url="http://ec2-107-23-252-231.compute-1.amazonaws.com:3000/";
 
 
-
+    String serverResponse;
     EditText nameET;
     EditText phoneET;
     EditText passwordET;
     TextView testTV;
+    Button signupBtn;
+    private UserSignUp userSignUp;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sign_up);
-        Button backBtn = findViewById(R.id.back_button);
-        Button signinPageBtn = findViewById(R.id.signin_page_button);
-        Button signupBtn = findViewById(R.id.signup_button);
+        //Button backBtn = findViewById(R.id.back_button);
+        signupBtn= findViewById(R.id.signup_button);
         signupBtn.setOnClickListener(this::SignUpClick);
-        backBtn.setOnClickListener(this::BackClick);
-        signinPageBtn.setOnClickListener(this::PageSignInClick);
-
+        //backBtn.setOnClickListener(this::BackClick);
+        signupBtn.setEnabled(true);
 
         nameET = findViewById(R.id.name_edit_text);
         phoneET = findViewById(R.id.phone_number_edit_text);
@@ -68,61 +58,119 @@ public class SignUp extends AppCompatActivity {
         testTV= findViewById(R.id.test_tv);
 
 
+        /*nameET.addTextChangedListener(signupTW);
+        phoneET.addTextChangedListener(signupTW);
+        passwordET.addTextChangedListener(signupTW);
+*/
+
     }
-    private void SignUpClick(View view)
-    {
+    TextWatcher signupTW = new TextWatcher() {
+        @Override
+        public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+        }
+
+        @Override
+        public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            String string_name = nameET.getText().toString();
+            String string_phone_number = phoneET.getText().toString();
+            String string_password =  passwordET.getText().toString();
+
+            signupBtn.setEnabled(!string_name.isEmpty() && !string_phone_number.isEmpty() && !string_password.isEmpty());
+        }
+
+        @Override
+        public void afterTextChanged(Editable editable) {
+
+        }
+    };
+    private void PostSignUpRequestTest(){
         String string_name = nameET.getText().toString();
         String string_phone_number = phoneET.getText().toString();
-        String string_password = passwordET.getText().toString();
+        String string_password =  passwordET.getText().toString();
+        ArrayList<UserPostInner> userPostInner = new ArrayList<>();
+        UserPost userPost=new UserPost(
+                string_name,
+                string_phone_number,
+                string_password,
+                userPostInner
+        );
+        sendNetworkRequest(userPost);
+    }
+    private void sendNetworkRequest(UserPost userPost){
+        /*Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
 
-        if( string_name.isEmpty() ) {
-            Toast.makeText( this, "Enter name", Toast.LENGTH_SHORT ).show();
-            nameET.requestFocus();
-            return;
-        }
-        new Thread(new Runnable() {
+        userSignUp = retrofit.create(UserSignUp.class);
+       Call<UserPost> call = userSignUp.up();
+
+        call.enqueue(new Callback<UserPost>() {
             @Override
-            public void run() {
-                RequestBody postBody = new FormBody.Builder()
-                        .add("name", string_name)
-                        .add("password", string_password)
-                        .add("phoneNumber", string_phone_number)
-                        .build();
-                Request request = new Request.Builder()
-                        .url(url)
-                        .post(postBody)
-                        .build();
-                OkHttpClient client = new OkHttpClient();
-                OkHttpClient.Builder builder = new OkHttpClient.Builder();
-                client = builder.build();
-                //Call call = client.newCall(request);
+            public void onResponse(Call<UserPost> call, retrofit2.Response<UserPost> response) {
+                Toast.makeText(SignUp.this,"niiice "+ response.body(),Toast.LENGTH_SHORT).show();
+            }
 
-                //Response response = null;
+            @Override
+            public void onFailure(Call<UserPost> call, Throwable t) {
+                Toast.makeText(SignUp.this,"fuuuuck",Toast.LENGTH_SHORT).show();
+            }
+        });*/
+    }
+    private void PostSignUpRequest()
+    {
+        Gson gson = new GsonBuilder().create();
 
-                try(Response response = client.newCall(request).execute()){
-                    //response = call.execute();
-                    String serverResponse = response.body().string();
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            testTV.setText(serverResponse);
-                        }
-                    });
-                }catch(IOException error){
-                    error.printStackTrace();
+        // Create OkHttpClient instance
+        OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
+
+        // Create Retrofit instance
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("http://example.com")  // Replace with your base URL
+                .addConverterFactory(GsonConverterFactory.create(gson))
+                .client(httpClient.build())
+                .build();
+
+        // Create the API service
+        UserSignUp apiService = retrofit.create(UserSignUp.class);
+
+        // Variables for name, phoneNumber, and password
+        String name = "John Doe";
+        String phoneNumber = "+1234567890";
+        String password = "secretpassword";
+
+        // JSON payload
+        String jsonPayload = "{\"name\": \"" + name + "\", \"phoneNumber\": \"" + phoneNumber + "\", \"password\": \"" + password + "\", \"existence\": {}}";
+        RequestBody requestBody = RequestBody.create(MediaType.parse("application/json"), jsonPayload);
+
+        // Send the POST request
+        Call<Void> call = apiService.up(requestBody);
+        call.enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(Call<Void> call, Response<Void> response) {
+                if (response.isSuccessful()) {
+                    Toast.makeText(SignUp.this,"niiice "+ response.body(),Toast.LENGTH_SHORT).show();
+                } else {
+                    Log.e("MainActivity", "Request failed with code: " + response.code());
                 }
             }
-        }).start();
+
+            @Override
+            public void onFailure(Call<Void> call, Throwable t) {
+                Log.e("MainActivity", "Request failed: " + t.getMessage());
+            }
+        });
+
+
+        }
+    private void SignUpClick(View view)
+    {
+       PostSignUpRequestTest();
 
     }
 
-   private void PageSignInClick(View view)
-   {
-       Intent PageSignInIntent = new Intent(
-               SignUp.this,
-               SignIn.class ) ;
-       startActivity( PageSignInIntent ) ;
-   }
+
    private void BackClick(View view)
    {
 

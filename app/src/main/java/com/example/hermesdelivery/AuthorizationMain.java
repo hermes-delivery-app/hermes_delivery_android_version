@@ -20,8 +20,7 @@ public class AuthorizationMain extends AppCompatActivity {
         facebookLoginBtn.setOnClickListener(this::FBLoginClick);
         Button signUpPageBtn = findViewById(R.id.signup_page_button);
         signUpPageBtn.setOnClickListener(this::PageSignUpClick);
-        TextView signInPageBtn = findViewById(R.id.signin_page_button);
-        signInPageBtn.setOnClickListener(this::PageSignInClick);
+
     }
     private void PageSignInClick(View view)
     {

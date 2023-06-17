@@ -4,30 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SignIn">
+    tools:context=".SignIn"
+    android:background="#ECECEC">
     <include layout="@layout/toolbar"/>
 
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:ignore="MissingConstraints">
-    <Button
-        android:id="@+id/signup_page_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/signup_string"
-        android:textColor="@color/black"
-        android:layout_alignParentEnd="true"
-        style="?android:attr/borderlessButtonStyle"
-        tools:ignore="MissingConstraints" />
-    </RelativeLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="vertical"
-        tools:ignore="MissingConstraints">
+        tools:ignore="MissingConstraints"
+        android:layout_marginHorizontal="25dp">
 
         <TextView
             android:id="@+id/signin_text_view"
@@ -35,29 +22,65 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="@string/signin_string"
-            android:textSize="30dp"
-            android:layout_marginTop="100dp"
+            style="@style/Sign_Label"
+            android:layout_marginTop="136dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.043" />
-
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@drawable/border_line_sign"
+        android:elevation="2dp"
+        android:layout_marginTop="31dp">
+        <ImageView
+            android:layout_width="19dp"
+            android:layout_height="19dp"
+            android:src="@drawable/ic_baseline_phone"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="17dp"
+            android:layout_gravity="center"
+            />
         <EditText
             android:id="@+id/phone_number_edit_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
             android:hint="Phone number"
-            android:inputType="phone" />
+            android:inputType="phone"
+            style="@style/Text_Sign"
+            android:background="#00000000"/>
+    </LinearLayout>
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="26dp"
+            android:id="@+id/phone_error"
+            android:gravity="center"
+            style="@style/Text_Error"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@drawable/border_line_sign"
+        android:elevation="2dp">
+        <ImageView
+            android:layout_width="19dp"
+            android:layout_height="19dp"
+            android:src="@drawable/icon"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="17dp"
+            android:layout_gravity="center"
+            />
         <EditText
             android:id="@+id/password_edit_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
             android:inputType="textPassword"
-            android:hint="Password" />
+            android:hint="Password"
+            style="@style/Text_Sign"
+            android:background="#00000000"/>
+    </LinearLayout>
 <TextView
     android:id="@+id/forgot_password_text_view"
     android:layout_width="wrap_content"
@@ -65,24 +88,31 @@
     android:gravity="center"
     android:text="Forgot password?"
     android:textSize="12dp"
-    android:layout_marginTop="15dp"
+    android:layout_marginTop="52dp"
     app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent" />
 
+        <TextView
+            android:layout_marginTop="69dp"
+            android:layout_width="wrap_content"
+            android:layout_height="26dp"
+            android:id="@+id/signin_error"
+            android:gravity="center"
+            style="@style/Text_Error"/>
         <Button
             android:id="@+id/signin_l_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="220dp"
+            android:layout_height="44dp"
             android:text="@string/signin_string"
-            android:ems="13"
-            android:layout_marginTop="15dp"/>
+            style="@style/Button_Black"
+            />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/test_tv"
-            android:text="sometext"
+            android:text=""
             />
     </LinearLayout>
 

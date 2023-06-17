@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+
+        android:layout_marginTop="38dp"
+        android:background="@drawable/dialog_optional_border">
+        <TextView
+            android:id="@+id/order_item_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Item Name"
+            style="@style/Item_Name"/>
+        <TextView
+            android:id="@+id/order_item_cost"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cost"
+            style="@style/Cost_Name"
+            android:layout_marginTop="5dp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="13dp">
+            <TextView
+                android:id="@+id/optional_item_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Optional Items"
+                style="@style/Option_Name"
+                android:layout_marginRight="10dp"/>
+            <TextView
+                android:layout_width="80dp"
+                android:layout_height="25dp"
+                android:gravity="center"
+                android:text="@string/necessarily_string"
+                android:background="@drawable/necessarily_items_border"
+                style="@style/Necessarily_Style"
+                />
+        </LinearLayout>
+        <RadioGroup
+            android:id="@+id/radio_necessarily"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <RadioButton
+                android:id="@+id/optional_item_radio_button_1"
+                android:layout_width="wrap_content"
+                android:layout_height="21dp"
+                android:text="Option A"
+                style="@style/Radio_Options"
+                android:layout_marginBottom="10dp"
+                android:onClick="onRadioButtonClicked"/>
+
+            <RadioButton
+                android:id="@+id/optional_item_radio_button_2"
+                style="@style/Radio_Options"
+                android:layout_width="wrap_content"
+                android:layout_height="21dp"
+                android:text="Option B"
+                android:onClick="onRadioButtonClicked"/>
+        </RadioGroup>
+
+        ////////////////////////////////////
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="13dp">
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Optional Items"
+                style="@style/Option_Name"
+                android:layout_marginRight="10dp"/>
+        </LinearLayout>
+
+            <RadioButton
+
+                android:layout_width="wrap_content"
+                android:layout_height="21dp"
+                android:text="Option A"
+                style="@style/Radio_Options"
+                android:layout_marginBottom="10dp"/>
+
+            <RadioButton
+
+                style="@style/Radio_Options"
+                android:layout_width="wrap_content"
+                android:layout_height="21dp"
+                android:text="Option B"
+                android:layout_marginBottom="10dp"/>
+        <RadioButton
+
+            android:layout_width="wrap_content"
+            android:layout_height="21dp"
+            android:text="Option C"
+            style="@style/Radio_Options"
+            android:layout_marginBottom="10dp"/>
+
+        <RadioButton
+
+            style="@style/Radio_Options"
+            android:layout_width="wrap_content"
+            android:layout_height="21dp"
+            android:text="Option D" />
+
+        /////////////////////////////
+
+        <Button
+            android:id="@+id/add_to_basket_button"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="30dp"
+            android:layout_width="200dp"
+            android:layout_height="44dp"
+            style="@style/Button_Black"
+            android:text="Add to Basket"
+            android:layout_gravity="center"/>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

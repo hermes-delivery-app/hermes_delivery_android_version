@@ -5,8 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".StorePage"
-    android:theme="@style/BlackTextTheme"
-    >
+    android:background="@color/white">
 
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:id="@+id/bucket_button"
@@ -20,19 +19,7 @@
         android:text="Bucket"
         android:gravity="center" />
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:ignore="MissingConstraints">
 
-        <Button
-            android:id="@+id/back_button"
-            style="?android:attr/borderlessButtonStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="X"
-            android:textColor="@color/black" />
-    </RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -46,7 +33,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="139dp"
             android:background="@drawable/border"
             android:gravity="left"
             android:minHeight="130dp"
@@ -65,37 +52,72 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
                     android:layout_gravity="center"
-                    android:text="name"
-                    android:textSize="20dp" />
-
-                <TextView
-                    android:id="@+id/info_store_text_view"
+                    android:text="Store Name"
+                    style="@style/Store_Name"
+                     />
+                <LinearLayout
+                    android:id="@+id/layout_delivery"
                     android:layout_width="300dp"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/name_store_text_view"
-                    android:layout_alignParentLeft="true"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="12dp"
-                    android:text="some info"
-                    android:textSize="14dp" />
+                    android:layout_marginTop="12dp">
+                <ImageView
+                    android:id="@+id/delivery_icon_image_view"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:src="@drawable/ic_baseline_delivery_dining"
+                    android:layout_below="@+id/info_store_text_view"
+                    android:layout_centerVertical="true"/>
 
+                <TextView
+                    android:id="@+id/info_store_text_view"
+                    android:layout_width="60dp"
+                    android:layout_height="36dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_gravity="center"
+                    android:layout_toEndOf="@id/delivery_icon_image_view"
+                    android:text="30,00 \n15-20m"
+                    android:minLines="2"
+                    style="@style/Delivery_Style"/></LinearLayout>
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_toEndOf="@id/layout_delivery"
+    >
+    <ImageView
+        android:layout_width="23dp"
+        android:layout_height="23dp"
+        android:src="@drawable/material_symbols_star"/>
                 <TextView
                     android:id="@+id/rate_store_text_view"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_toEndOf="@id/info_store_text_view"
-                    android:text="rate"
-                    android:textSize="20dp" />
+                    android:text="5.00"
+                    style="@style/Rate_Style"
+                    /></LinearLayout>
             </RelativeLayout>
 
         </LinearLayout>
-
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/border"
+    android:orientation="vertical">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Menu"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        style="@style/Menu_Style"
+        android:layout_marginBottom="30dp"/>
      <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/items_recyclerview"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
+            android:layout_height="wrap_content"
+         />
+    </LinearLayout>
 
 
 

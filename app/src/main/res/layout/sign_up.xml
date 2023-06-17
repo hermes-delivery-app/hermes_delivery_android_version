@@ -4,28 +4,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".SignUp">
+    tools:context=".SignUp"
+    android:background="#ECECEC">
     <include layout="@layout/toolbar"/>
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:ignore="MissingConstraints">
-    <Button
-        android:id="@+id/signin_page_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/signin_string"
-        android:textColor="@color/black"
-        android:layout_alignParentRight="true"
-        style="?android:attr/borderlessButtonStyle"
-        tools:ignore="MissingConstraints" />
-    </RelativeLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="vertical"
-        tools:ignore="MissingConstraints">
+        tools:ignore="MissingConstraints"
+        android:layout_marginHorizontal="25dp">
 
         <TextView
             android:id="@+id/signup_text_view"
@@ -33,53 +22,116 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="@string/signup_string"
-            android:textSize="30dp"
+            style="@style/Sign_Label"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.043"
-            android:layout_marginTop="100dp"/>
+            android:layout_marginTop="136dp"/>
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    android:layout_marginTop="26dp"
+    android:layout_marginBottom="26dp"
+    android:background="@drawable/border_line_sign"
+    android:elevation="2dp">
+    <ImageView
+        android:layout_width="19dp"
+        android:layout_height="19dp"
+        android:src="@drawable/mdi_user"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="17dp"
+        android:layout_gravity="center"
+        />
         <EditText
             android:id="@+id/name_edit_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
+            style="@style/Text_Sign"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:hint="Name"
             android:inputType="textPersonName"
-            android:hint="Name" />
-
+            android:background="#00000000"/>
+</LinearLayout>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    android:background="@drawable/border_line_sign"
+    android:elevation="2dp">
+    <ImageView
+        android:layout_width="19dp"
+        android:layout_height="19dp"
+        android:src="@drawable/ic_baseline_phone"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="17dp"
+        android:layout_gravity="center"
+        />
         <EditText
             android:id="@+id/phone_number_edit_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
             android:hint="Phone number"
-            android:inputType="phone" />
+            android:inputType="phone"
+            style="@style/Text_Sign"
+            android:background="#00000000"/>
+
+    </LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="26dp"
+            android:id="@+id/phone_number_error"
+            android:gravity="center"
+            style="@style/Text_Error"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@drawable/border_line_sign"
+        android:elevation="2dp">
+        <ImageView
+            android:layout_width="19dp"
+            android:layout_height="19dp"
+            android:src="@drawable/icon"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="17dp"
+            android:layout_gravity="center"
+            />
         <EditText
             android:id="@+id/password_edit_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
             android:inputType="textPassword"
-            android:hint="Password" />
+            android:hint="Password"
+            style="@style/Text_Sign"
+            android:background="#00000000"/>
+    </LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="26dp"
+            android:id="@+id/password_error"
+            android:gravity="center"
+            style="@style/Text_Error"/>
 
 
         <Button
             android:id="@+id/signup_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="220dp"
+            android:layout_height="44dp"
             android:text="@string/signup_string"
-            android:ems="13"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="83dp"
             tools:layout_editor_absoluteX="144dp"
-            tools:layout_editor_absoluteY="330dp" />
+            tools:layout_editor_absoluteY="330dp"
+            style="@style/Button_Black"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/test_tv"
             />
-
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/signin_page_button"/>
 
     </LinearLayout>
 

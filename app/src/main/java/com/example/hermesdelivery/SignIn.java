@@ -12,6 +12,8 @@ import android.os.Bundle;
 import android.os.VibrationEffect;
 import android.os.Vibrator;
 import android.os.VibratorManager;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -43,24 +45,47 @@ public class SignIn extends AppCompatActivity {
     EditText passwordET;
 
     TextView testTV;
+    Button signinBtnClick;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sign_in);
-        Button backBtn = findViewById(R.id.back_button);
-        Button signupPageBtn = findViewById(R.id.signup_page_button);
-        Button signinBtnClick = findViewById(R.id.signin_l_button);
+        //Button backBtn = findViewById(R.id.back_button);
 
-        backBtn.setOnClickListener(this::BackClick);
-        signupPageBtn.setOnClickListener(this::PageSignUpClick);
+        signinBtnClick = findViewById(R.id.signin_l_button);
+        signinBtnClick.setEnabled(false);
+
+        //backBtn.setOnClickListener(this::BackClick);
         signinBtnClick.setOnClickListener(this::SignInClick);
 
         phoneET = findViewById(R.id.phone_number_edit_text);
         passwordET = findViewById(R.id.password_edit_text);
         testTV= findViewById(R.id.test_tv);
 
+        phoneET.addTextChangedListener(signinTW);
+        passwordET.addTextChangedListener(signinTW);
+
     }
+    TextWatcher signinTW = new TextWatcher() {
+        @Override
+        public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+        }
+
+        @Override
+        public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            String string_phone_number = phoneET.getText().toString();
+            String string_password =  passwordET.getText().toString();
+
+            signinBtnClick.setEnabled(!string_phone_number.isEmpty() && !string_password.isEmpty());
+        }
+
+        @Override
+        public void afterTextChanged(Editable editable) {
+
+        }
+    };
 
     private void PostLoginData(){
         String string_phone_number = phoneET.getText().toString();

@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="10dp"
-    android:theme="@style/BlackTextTheme">
+    android:background="@drawable/border_line_sign"
+    android:layout_marginBottom="20dp">
 
     <ImageView
         android:id="@+id/item_image_basket_view"
@@ -35,14 +36,7 @@
         android:layout_toEndOf="@id/item_info_basket_text_view"
         android:gravity="center"
         android:text=""
-        android:outlineAmbientShadowColor="@color/purple_200"
         android:layout_marginRight="10dp"
         />
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:layout_below="@id/item_image_basket_view"
-        android:background="#DAD8D8"
-        android:layout_marginTop="10dp"/>
 
 </RelativeLayout>

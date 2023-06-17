@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
         Button signUp = findViewById( R.id.signup_button ) ;
         signUp.setOnClickListener( this::btnSignUpClick ) ;
 
-        findViewById(R.id.signin_button)
+        findViewById(R.id.signin_act_button)
                 .setOnClickListener(this::btnSignInClick);
         findViewById(R.id.auth_main_button)
                 .setOnClickListener(this::btnAuthMainClick);

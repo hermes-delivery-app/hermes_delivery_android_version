@@ -4,5 +4,5 @@
     //authorization strings
     <string name="signup_string">SignUp</string>
     <string name="signin_string">SignIn</string>
-
+    <string name="necessarily_string">Necessarily</string>
 </resources>
